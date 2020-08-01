@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>== 三倍券地圖 ==</title>
+
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlKWP4uWjQIR3WDAWLAu6rUhBfc3_ppag&callback=initMap"
+    ></script>
+    <script src="https://unpkg.com/@google/markerclustererplus@5.0.4/dist/markerclustererplus.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+  <link rel="stylesheet" href="./dist/style/style.min.css" />
+
+  <body>
+    <div class="container-fluid m-0">
+      <div class="row align-items-center p-3">
+        <div class="col-12 col-md-2 pb-1">
+          <img class="d-block m-auto m-md-0"src="./img/bar-brand.png" alt="color-brand" />
+        </div>
+        <div class="input-group col-12 col-md-3 pb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="city">縣市</label>
+          </div>
+          <select class="custom-select" id="city"> </select>
+        </div>
+        <div class="input-group col-12 col-md-3 pb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="area">鄉鎮</label>
+          </div>
+          <select class="custom-select" id="area"> </select>
+        </div>
+        <div class="input-group col-12 col-md-3 pb-1">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="search">搜尋</label>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="search"
+            placeholder="請輸入地址"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+      </div>
+    </div>
+    
+    <div class="sidebar">
+      <a class ="sidebar-toggle d-flex justify-content-center align-items-center">
+        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+        </svg>
+        <svg width="16px" height="16px" viewBox="0 0 16 16" class="bi bi-caret-right-fill d-none" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+        </svg>
+      </a>
+      <div class="sidebar-content"></div>
+    </div>
+
+    <div id="map" class=""></div>
+  </body>
+
+  <script src="main.js"></script>
+  <script></script>
+</html>
