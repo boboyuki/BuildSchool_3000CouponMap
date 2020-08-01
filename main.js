@@ -61,12 +61,7 @@ toggleBtn.addEventListener('click', function () {
     sidebarContent.style.width = '100%';
     this.children[1].classList.add('d-none');
     this.children[0].classList.remove('d-none');
-    console.log(window.matchMedia('(max-width: 767px)'));
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      this.style.left = '93%';
-    } else {
-      this.style.left = '100%';
-    }
+    this.style.left = '100%';
   }
 });
 function getData(name, url) {
@@ -101,7 +96,7 @@ function displayData(data) {
   let elements = '';
   for (let i = 0; i < data.length; i++) {
     let contentString = `
-    <div class="card" style="width: 250px;">
+    <div class="card">
       <div class="card-body ">
         <h5 class="card-title">${data[i].storeNm}</h5>
         <h6 class="card-subtitle mb-2 text-muted">地址: <a target="_blank" href="https://www.google.com/maps/place/${data[i].addr}">${data[i].addr}</a></h6>
@@ -143,7 +138,7 @@ function renderMap(results) {
 
     let infoWindow = new google.maps.InfoWindow({
       content: `
-      <div class="card border-warning" style="width: 18rem;">
+      <div class="card border-warning">
         <div class="card-body ">
           <h5 class="card-title">${results[i].storeNm}</h5>
           <h6 class="card-subtitle mb-2 text-muted">地址: <a target="_blank" href="https://www.google.com/maps/place/${results[i].addr}">${results[i].addr}</a></h6>
