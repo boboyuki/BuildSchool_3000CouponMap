@@ -6,12 +6,19 @@
     height: 60px;
   }
 }
+// search
+.search-btn {
+  position: absolute;
+  top: 15%;
+  right: 25px;
+  z-index: 200;
+}
 
 .sidebar {
   position: fixed;
   width: 400px;
   height: 100%;
-  max-height: 700px;
+  max-height: 450px;
   top: 130px;
   left: 0;
   z-index: 100;

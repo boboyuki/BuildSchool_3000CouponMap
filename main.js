@@ -4,10 +4,10 @@ let cityData = [];
 let threeThousandsData = [];
 let citySelect = document.querySelector('#city');
 let areaSelect = document.querySelector('#area');
-let search = document.querySelector('#city');
+let search = document.querySelector('#search');
+let searchBtn = document.querySelector('.search-btn');
 let sidebarContent = document.querySelector('.sidebar-content');
 let toggleBtn = document.querySelector('.sidebar-toggle');
-
 (() => {
   let cityDataUrl =
     'https://raw.githubusercontent.com/donma/TaiwanAddressCityAreaRoadChineseEnglishJSON/master/CityCountyData.json';
@@ -64,6 +64,8 @@ toggleBtn.addEventListener('click', function () {
     this.style.left = '100%';
   }
 });
+search.addEventListener('change', searchData);
+searchBtn.addEventListener('click', searchData);
 function getData(name, url) {
   fetch(url)
     .then((response) => response.json())
@@ -92,6 +94,13 @@ function getShopData() {
     .filter((item) => item.townNm === areaVal);
   return shopData;
 }
+function searchData() {
+  let input = search.value;
+  const shopData = threeThousandsData.filter((item) => item.addr.match(input));
+  displayData(shopData);
+  panTo(shopData);
+  input = '';
+}
 function displayData(data) {
   let elements = '';
   for (let i = 0; i < data.length; i++) {
@@ -109,8 +118,11 @@ function displayData(data) {
     </div>`;
     elements += contentString;
   }
+
   sidebarContent.innerHTML = elements;
+  
 }
+
 function panTo(data) {
   let firstLatitude = parseFloat(data[0].latitude);
   let firstLongitude = parseFloat(data[0].longitude);
